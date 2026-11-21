@@ -1,0 +1,35 @@
+locryp = 1
+name = "Suzuki group Sz(8) in its natural representation over F8"
+
+[fields.F2]
+prime = 2
+
+[fields.F8]
+base = "F2"
+modulus = [1, 1, 0, 1]
+
+[matrix_groups.Sz8]
+field = "F8"
+size = 4
+order = 29120
+relators = ["T^2", "s^4", "(s*T)^13"]
+
+[matrix_groups.Sz8.element_orders]
+"T" = 2
+"s" = 4
+"s*T*s^-1*T" = 7
+"s*T" = 13
+
+[matrix_groups.Sz8.generators]
+s = [
+  [[1], [0], [0], [0]],
+  [[0, 1], [1], [0], [0]],
+  [[0], [0, 1, 1], [1], [0]],
+  [[1, 0, 1], [1, 1, 1], [0, 1], [1]],
+]
+T = [
+  [[0], [0], [0], [1]],
+  [[0], [0], [1], [0]],
+  [[0], [1], [0], [0]],
+  [[1], [0], [0], [0]],
+]

@@ -1,0 +1,56 @@
+locryp = 1
+name = "deliberately flawed parameters"
+
+[fields.Fp]
+prime = "175374040658033212745386689539757367483"
+
+[fields.Fq]
+prime = "3825123056546413051"
+
+[fields.Fp2]
+base = "Fp"
+modulus = [2, 0, 1]
+
+[curves.Supersingular]
+field = "Fp"
+a = "1"
+b = "0"
+subgroup_order = "43843510164508303186346672384939341871"
+cofactor = "4"
+
+[curves.Supersingular.generator]
+x = "130597128020004527160661139397028115636"
+y = "158655805246611342134752349769561103546"
+
+[curves.WrongCardinality]
+field = "Fp"
+a = "1"
+b = "0"
+subgroup_order = "43843510164508303186346672384939341871"
+cardinality = "175374040658033212745386689539757367480"
+embedding_degree = 2
+
+[curves.WrongCardinality.generator]
+x = "130597128020004527160661139397028115636"
+y = "158655805246611342134752349769561103546"
+
+[curves.OffCurve]
+field = "Fp"
+a = "1"
+b = "0"
+subgroup_order = "43843510164508303186346672384939341871"
+embedding_degree = 2
+
+[curves.OffCurve.generator]
+x = "130597128020004527160661139397028115636"
+y = "158655805246611342134752349769561103547"
+
+[constraint_systems.Cubic]
+field = "Fp"
+variables = 5
+witness = [1, 35, 3, 9, 28]
+constraints = [
+  { a = { 2 = 1 }, b = { 2 = 1 }, c = { 3 = 1 } },
+  { a = { 3 = 1 }, b = { 2 = 1 }, c = { 4 = 1 } },
+  { a = { 4 = 1, 2 = 1, 0 = 5 }, b = { 0 = 1 }, c = { 1 = 1 } },
+]
