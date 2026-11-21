@@ -107,7 +107,7 @@ The prover and the verifier are deliberately separate. The prover is a search pr
 | `CURVE-NOT-ANOMALOUS` | $r \ne \mathrm{char}\,\mathbb F$, excluding the Smart-Satoh-Araki-Semaev attack | integer comparison |
 | `GENERATOR-ORDER` | $G$ has order exactly $r$ | $[r]G = \mathcal O$ and $[r/\ell]G \ne \mathcal O$ for every proven prime $\ell \mid r$ |
 | `CURVE-COFACTOR` | $N = hr$, or $r \mid N$ | integer arithmetic |
-| `CURVE-CARDINALITY` | $\#E(\mathbb F_q) = N$ | Hasse interval uniqueness, or an exhaustive count for $q \le 2^{20}$ |
+| `CURVE-CARDINALITY` | $\lvert E(\mathbb F_q)\rvert = N$ | Hasse interval uniqueness, or an exhaustive count for $q \le 2^{20}$ |
 | `CURVE-EMBEDDING-DEGREE` | the embedding degree is exactly $k$, or at least $B$ (default 100, following SEC 1) | modular exponentiation |
 | `GROUP-MATRICES` | matrix generators are invertible | Gaussian elimination |
 | `GROUP-RELATOR` | a word in the generators equals the identity | exact matrix arithmetic |
@@ -129,12 +129,12 @@ The prover and the verifier are deliberately separate. The prover is a search pr
 
 *Morrison.* Let $F \mid n+1$ with $(F-1)^2 > n$. Suppose that for each proven prime $q \mid F$ there is a Lucas sequence $(P,Q)$ with $\gcd(n, 2QD) = 1$, $n \mid U_{n+1}$, and $\gcd(U_{(n+1)/q}, n) = 1$. Then the rank of apparition at every prime $\ell \mid n$ is divisible by $F$ and divides $\ell \pm 1$. So $\ell \ge F - 1 > \sqrt n$, and $n$ is prime.
 
-*Goldwasser-Kilian.* Let $\gcd(n,6) = 1$, let $E$ be nonsingular modulo $n$, and let $P \in E(\mathbb Z/n)$ satisfy $[m]P = \mathcal O$ with $[m/q]P$ affine, where $q$ is a proven prime and $q > (n^{1/4}+1)^2$. For a prime $\ell \le \sqrt n$ dividing $n$, the point $P \bmod \ell$ would have order divisible by $q$. But $q > (\ell^{1/2}+1)^2 \ge \#E(\mathbb F_\ell)$, which is impossible, so $n$ is prime. Two details keep this exact:
+*Goldwasser-Kilian.* Let $\gcd(n,6) = 1$, let $E$ be nonsingular modulo $n$, and let $P \in E(\mathbb Z/n)$ satisfy $[m]P = \mathcal O$ with $[m/q]P$ affine, where $q$ is a proven prime and $q > (n^{1/4}+1)^2$. For a prime $\ell \le \sqrt n$ dividing $n$, the point $P \bmod \ell$ would have order divisible by $q$. But $q > (\ell^{1/2}+1)^2 \ge \lvert E(\mathbb F_\ell)\rvert$, which is impossible, so $n$ is prime. Two details keep this exact:
 
 * Curve arithmetic modulo $n$ raises an error whenever a denominator is not a unit, so every computed step reduces to a valid step modulo each prime divisor of $n$.
 * The real inequality is replaced by the integer test $(\lfloor\sqrt q\rfloor - 1)^4 > n$, which implies it.
 
-**Cardinality.** If $G$ has order exactly $r$, then $r \mid \#E(\mathbb F_q)$. Hasse's theorem places $\#E$ in the interval
+**Cardinality.** If $G$ has order exactly $r$, then $r \mid \lvert E(\mathbb F_q)\rvert$. Hasse's theorem places $\lvert E\rvert$ in the interval
 
 $$
 \left[\,q+1-\lfloor\sqrt{4q}\rfloor,\ q+1+\lfloor\sqrt{4q}\rfloor\,\right],
