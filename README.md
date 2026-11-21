@@ -65,7 +65,7 @@ whose Frobenius traces are explicit exponential sums over $W_2(k) \to \mathbb Z/
 * For $q = 8$, it is exactly ${}^2B_2(8)$ in degree 14, and the arithmetic monodromy group over $\mathbb F_2$ is $\mathrm{Aut}({}^2B_2(8))$. Ruling out $\mathrm{SL}_{14}$ took a fourth moment computation over $\mathbb F_{2^{18}}^\times$ of about 7500 CPU hours in Magma. The computation bounds $M_{2,2}$ through the estimate
 
 $$
-\left|\frac{1}{q-1}\sum_{u\in\mathbb F_q^\times}\operatorname{Tr}\left(\mathrm{Frob}_u \mid \mathcal H_0^{a,b}\right)\right|
+\left|\frac{1}{q-1}\sum_{u\in\mathbb F_q^\times}\mathrm{Tr}\left(\mathrm{Frob}_u \mid \mathcal H_0^{a,b}\right)\right|
 \le \frac{q}{q-1}M_{a,b} + \frac{A\sqrt q}{q-1} + \frac{B-A}{q-1}.
 $$
 
@@ -104,7 +104,7 @@ The prover and the verifier are deliberately separate. The prover is a search pr
 | `CURVE-NONSINGULAR` | $4a^3 + 27b^2 \ne 0$ | exact field arithmetic |
 | `CURVE-POINT` | $G$ satisfies $y^2 = x^3 + ax + b$ | exact field arithmetic |
 | `SUBGROUP-PRIME` | the subgroup order $r$ is prime | primality certificate |
-| `CURVE-NOT-ANOMALOUS` | $r \ne \operatorname{char} \mathbb F$, excluding the Smart-Satoh-Araki-Semaev attack | integer comparison |
+| `CURVE-NOT-ANOMALOUS` | $r \ne \mathrm{char}\,\mathbb F$, excluding the Smart-Satoh-Araki-Semaev attack | integer comparison |
 | `GENERATOR-ORDER` | $G$ has order exactly $r$ | $[r]G = \mathcal O$ and $[r/\ell]G \ne \mathcal O$ for every proven prime $\ell \mid r$ |
 | `CURVE-COFACTOR` | $N = hr$, or $r \mid N$ | integer arithmetic |
 | `CURVE-CARDINALITY` | $\#E(\mathbb F_q) = N$ | Hasse interval uniqueness, or an exhaustive count for $q \le 2^{20}$ |
